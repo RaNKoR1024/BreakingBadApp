@@ -36,7 +36,8 @@ class CharacterAdapter(
                 .load(item.img)
                 .override(64, 64)
                 .centerCrop()
-                .placeholder(R.drawable.ic_launcher_foreground)
+                .placeholder(R.drawable.ic_baseline_image)
+                .error(R.drawable.ic_baseline_error_outline)
                 .into(ivCharacterAvatar)
 
             mainContainer.setOnClickListener {

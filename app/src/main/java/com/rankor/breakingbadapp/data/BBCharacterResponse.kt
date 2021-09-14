@@ -2,7 +2,7 @@ package com.rankor.breakingbadapp.data
 
 import android.content.Context
 import com.rankor.breakingbadapp.R
-import com.rankor.breakingbadapp.ui.Constants
+import com.rankor.breakingbadapp.domain.Constants
 import com.rankor.breakingbadapp.ui.entities.BBCharacter
 import com.rankor.breakingbadapp.ui.entities.BBCharacterItem
 
@@ -19,6 +19,9 @@ data class BBCharacterResponse(
     val category: String,
     val better_call_saul_appearance: List<Int>
 ) {
+
+    // parsing response to simplified character class
+    // for setting information in recycle view items
     fun parseToCharacterItem(): BBCharacterItem =
         BBCharacterItem(
             charId = char_id,
@@ -26,8 +29,9 @@ data class BBCharacterResponse(
             img = img
         )
 
+    // parsing response to special character class for setting string values on view
     fun parseToCharacter(context: Context): BBCharacter {
-        with (this@BBCharacterResponse) {
+        with(this@BBCharacterResponse) {
             return BBCharacter(
                 name = name,
                 birthday = parseBornDate(context ,birthday),
@@ -47,8 +51,8 @@ data class BBCharacterResponse(
         if (date == Constants.UNKNOWN) {
             return "-"
         }
-        val day = date.substring(0, 2)
-        val month = when (date.substring(3, 5).toInt()) {
+        val day = date.substring(3, 5)
+        val month = when (date.substring(0, 2).toInt()) {
             1 -> context.getString(R.string.january)
             2 -> context.getString(R.string.february)
             3 -> context.getString(R.string.march)
@@ -64,7 +68,7 @@ data class BBCharacterResponse(
             else -> " "
         }
         val year = date.substring(6, 10)
-        return day + month + year
+        return "$day $month $year"
     }
 
     private fun parseOccupation(occupation: List<String>): String {

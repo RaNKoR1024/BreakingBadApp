@@ -8,6 +8,7 @@ interface BBApi {
     @GET("characters")
     suspend fun getBBList(): List<BBCharacterResponse>
 
+    // get information about single character by list, because of strange api response :-/
     @GET("characters/{id}")
     suspend fun getBBCharacter(@Path("id") id: Int): List<BBCharacterResponse>
 

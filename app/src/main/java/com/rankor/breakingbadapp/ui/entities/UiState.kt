@@ -1,5 +1,6 @@
 package com.rankor.breakingbadapp.ui.entities
 
+// class for changing state of fragment
 sealed class UiState {
 
     class BBListState(
@@ -8,5 +9,6 @@ sealed class UiState {
     ) : UiState()
 
     class BBCharacterState(val bbCharacter: BBCharacter) : UiState()
+
 }
 

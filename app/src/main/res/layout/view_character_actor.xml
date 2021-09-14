@@ -62,6 +62,7 @@
             android:id="@+id/iv_actor_avatar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"
             tools:ignore="ImageContrastCheck" />
 
     </androidx.cardview.widget.CardView>

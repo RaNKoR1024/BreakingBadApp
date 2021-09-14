@@ -27,6 +27,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val singleEvent: LiveData<SingleEvent<UiEvent>>
         get() = _singleEvent
 
+    // cache for characters info
     private var characterList = emptyList<BBCharacterItem>()
 
     init {
@@ -37,12 +38,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // to simplify sending intent from view
     fun dispatch(intent: UiIntent) {
         viewModelScope.launch(Dispatchers.IO) {
             intentChannel.send(intent)
         }
     }
 
+    // precess received intent
     private suspend fun reduce(intent: UiIntent) {
         when (intent) {
             is UiIntent.GetBBCharacters -> withContext(Dispatchers.IO) {
@@ -54,6 +57,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // get information about all characters
     private suspend fun getBBList() {
         if (characterList.isNotEmpty()) {
             _state.postValue(
@@ -87,6 +91,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // get full information about one character by id
     private suspend fun getBBCharacter(charId: Int) {
         kotlin.runCatching {
             _state.postValue(
@@ -112,6 +117,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // post single event to activity
     private fun singleEvent(event: UiEvent) {
         _singleEvent.postValue(SingleEvent(event))
     }

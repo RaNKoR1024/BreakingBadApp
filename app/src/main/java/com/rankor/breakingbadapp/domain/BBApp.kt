@@ -1,7 +1,6 @@
 package com.rankor.breakingbadapp.domain
 
 import android.app.Application
-import android.util.Log
 import com.rankor.breakingbadapp.data.BBApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,10 +13,11 @@ class BBApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.e("TAG", "----------------app")
+
         setupRetrofit()
     }
 
+    // setup retrofit logging and api for calls
     private fun setupRetrofit() {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC

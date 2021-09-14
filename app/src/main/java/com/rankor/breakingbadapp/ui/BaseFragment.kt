@@ -28,6 +28,7 @@ abstract class BaseFragment(@LayoutRes val contentLayoutId: Int): Fragment() {
         return _binding!!.root
     }
 
+    // to simplify binding process inside inheritor fragment class
     abstract fun bindView(view: View): ViewBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ abstract class BaseFragment(@LayoutRes val contentLayoutId: Int): Fragment() {
         }
     }
 
+    // to render state inside inheritor fragment class
     abstract fun render(state: UiState)
 
     override fun onDestroyView() {

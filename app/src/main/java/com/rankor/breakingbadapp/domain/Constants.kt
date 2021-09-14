@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.ui
+package com.rankor.breakingbadapp.domain
 
 object Constants {
     const val UNKNOWN = "Unknown"

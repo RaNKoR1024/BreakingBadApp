@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.dispatch(UiIntent.GetBBCharacters)
     }
 
+    // to react on state
     private fun render(state: UiState) {
         when (state) {
             is UiState.BBListState -> {
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // to process single event
     private fun renderSingleEvent(event: UiEvent) {
         when (event) {
             is UiEvent.ShortToast -> {
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // fixes bug when user can't exit CharacterFragment by pressing back button
     override fun onBackPressed() {
         if (viewModel.state.value is UiState.BBCharacterState) {
             viewModel.dispatch(UiIntent.GetBBCharacters)

@@ -3,6 +3,7 @@ package com.rankor.breakingbadapp.ui.entities
 import android.view.View
 import com.rankor.breakingbadapp.databinding.ViewLoadingBinding
 
+// class for changing state of loading screen
 enum class LoadingState {
     LOADING,
     READY,

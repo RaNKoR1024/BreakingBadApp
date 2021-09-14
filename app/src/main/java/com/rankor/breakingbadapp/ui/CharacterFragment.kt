@@ -7,9 +7,9 @@ import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.rankor.breakingbadapp.R
 import com.rankor.breakingbadapp.databinding.FragmentCharacterBinding
-import com.rankor.breakingbadapp.ui.Category.BB
-import com.rankor.breakingbadapp.ui.Category.BB_AND_BCS
-import com.rankor.breakingbadapp.ui.Category.BCS
+import com.rankor.breakingbadapp.domain.Category.BB
+import com.rankor.breakingbadapp.domain.Category.BB_AND_BCS
+import com.rankor.breakingbadapp.domain.Category.BCS
 import com.rankor.breakingbadapp.ui.entities.UiIntent
 import com.rankor.breakingbadapp.ui.entities.UiState
 
@@ -54,7 +54,8 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
                 Glide.with(requireContext())
                     .load(img)
                     .override(400, 400)
-                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .placeholder(R.drawable.ic_baseline_image)
+                    .error(R.drawable.ic_baseline_error_outline)
                     .into(ivCharacter)
                 with(characterInfo) {
                     tvNickname.text = nickname
@@ -90,7 +91,8 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
                         .load(img)
                         .override(100, 100)
                         .centerCrop()
-                        .placeholder(R.drawable.ic_launcher_foreground)
+                        .placeholder(R.drawable.ic_baseline_image)
+                        .error(R.drawable.ic_baseline_error_outline)
                         .into(ivActorAvatar)
                 }
             }

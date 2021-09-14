@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:alpha="0.05"
+        android:background="@drawable/bg_character"
+        android:backgroundTint="@color/character_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/character"
+        android:textAlignment="center"
+        android:textColor="@color/special_black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_nickname_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/also_known_as"
+        android:textColor="@color/special_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_nickname"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_nickname" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/bb_characters"
+        android:textColor="@color/special_black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_nickname_show"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_born_date_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/born_date"
+        android:textColor="@color/special_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_born_date"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_born_date" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_born_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/bb_characters"
+        android:textColor="@color/special_black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_born_date_show"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nickname" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_status_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/status"
+        android:textColor="@color/special_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_status"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_status" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/bb_characters"
+        android:textColor="@color/special_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_status_show"
+        app:layout_constraintTop_toBottomOf="@+id/tv_born_date" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

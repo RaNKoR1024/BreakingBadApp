@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Breaking Bad Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="connection_error">Ошибка соединения</string>
+    <string name="bb_characters">BB Characters</string>
+    <string name="character">Персонаж</string>
+    <string name="born_date">Дата рождения:</string>
+    <string name="status">Статус:</string>
+    <string name="occupation">Род деятельности</string>
+    <string name="appearance">Появление</string>
+    <string name="also_known_as">Также известен как:</string>
+    <string name="actor">Актер</string>
+    <string name="january"> января </string>
+    <string name="february"> февраля </string>
+    <string name="march"> марта </string>
+    <string name="april"> апреля </string>
+    <string name="may"> мая </string>
+    <string name="june"> июня </string>
+    <string name="july"> июля </string>
+    <string name="august"> августа </string>
+    <string name="september"> сентября </string>
+    <string name="october"> октября </string>
+    <string name="november"> ноября </string>
+    <string name="december"> декабря </string>
+</resources>

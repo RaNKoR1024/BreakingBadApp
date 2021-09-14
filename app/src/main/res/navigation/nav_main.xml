@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.rankor.breakingbadapp.ui.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_characterFragment"
+            app:destination="@id/characterFragment"
+            app:enterAnim="@anim/left_enter"
+            app:exitAnim="@anim/left_exit"
+            app:popEnterAnim="@anim/right_enter"
+            app:popExitAnim="@anim/right_exit"
+            app:popUpTo="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.rankor.breakingbadapp.ui.CharacterFragment"
+        android:label="fragment_character"
+        tools:layout="@layout/fragment_character" />
+</navigation>

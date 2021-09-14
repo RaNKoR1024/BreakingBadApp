@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.rankor.breakingbadapp.R
 import com.rankor.breakingbadapp.databinding.FragmentCharacterBinding
 import com.rankor.breakingbadapp.domain.Category.BB
@@ -12,6 +13,7 @@ import com.rankor.breakingbadapp.domain.Category.BB_AND_BCS
 import com.rankor.breakingbadapp.domain.Category.BCS
 import com.rankor.breakingbadapp.ui.entities.UiIntent
 import com.rankor.breakingbadapp.ui.entities.UiState
+import jp.wasabeef.glide.transformations.CropTransformation
 
 
 class CharacterFragment : BaseFragment(R.layout.fragment_character) {
@@ -54,7 +56,11 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
                 Glide.with(requireContext())
                     .load(img)
                     .override(400, 400)
-                    .placeholder(R.drawable.ic_baseline_image)
+                    .apply(
+                        RequestOptions.bitmapTransform(
+                            CropTransformation(400, 400, CropTransformation.CropType.TOP)
+                        )
+                    ).placeholder(R.drawable.ic_baseline_image)
                     .error(R.drawable.ic_baseline_error_outline)
                     .into(ivCharacter)
                 with(characterInfo) {
@@ -90,8 +96,11 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
                     Glide.with(requireContext())
                         .load(img)
                         .override(100, 100)
-                        .centerCrop()
-                        .placeholder(R.drawable.ic_baseline_image)
+                        .apply(
+                            RequestOptions.bitmapTransform(
+                                CropTransformation(100, 100, CropTransformation.CropType.TOP)
+                            )
+                        ).placeholder(R.drawable.ic_baseline_image)
                         .error(R.drawable.ic_baseline_error_outline)
                         .into(ivActorAvatar)
                 }

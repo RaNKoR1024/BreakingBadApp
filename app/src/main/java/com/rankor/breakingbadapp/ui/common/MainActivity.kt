@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.singleEvent.observe(this) {
             it.getContentIfNotHandled()?.let { event -> renderSingleEvent(event) }
         }
-        viewModel.dispatch(UiIntent.GetBBCharacters)
     }
 
     // to react on state

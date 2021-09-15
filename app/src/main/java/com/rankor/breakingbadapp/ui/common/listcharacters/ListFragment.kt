@@ -32,6 +32,7 @@ class ListFragment : BaseFragment(R.layout.fragment_list) {
         binding.loadingScreen.btnRetry.setOnClickListener {
             viewModel.dispatch(UiIntent.GetBBCharacters)
         }
+        viewModel.dispatch(UiIntent.GetBBCharacters)
     }
 
     override fun render(state: UiState) {

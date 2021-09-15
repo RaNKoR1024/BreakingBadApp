@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.domain
+package com.rankor.breakingbadapp.ui
 
 import android.app.Application
 import com.rankor.breakingbadapp.data.BBApi

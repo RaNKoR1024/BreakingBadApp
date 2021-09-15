@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.ui
+package com.rankor.breakingbadapp.ui.common
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,9 +6,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.rankor.breakingbadapp.R
-import com.rankor.breakingbadapp.domain.BBApp
-import com.rankor.breakingbadapp.domain.SingleEvent
-import com.rankor.breakingbadapp.ui.entities.*
+import com.rankor.breakingbadapp.ui.BBApp
+import com.rankor.breakingbadapp.ui.common.listcharacters.CharacterItem
+import com.rankor.breakingbadapp.ui.entities.SingleEvent
+import com.rankor.breakingbadapp.ui.entities.UiEvent
+import com.rankor.breakingbadapp.ui.entities.UiIntent
+import com.rankor.breakingbadapp.ui.entities.UiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.collect
@@ -28,7 +31,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         get() = _singleEvent
 
     // cache for characters info
-    private var characterList = emptyList<BBCharacterItem>()
+    private var characterList = emptyList<CharacterItem>()
 
     init {
         viewModelScope.launch {
@@ -62,7 +65,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if (characterList.isNotEmpty()) {
             _state.postValue(
                 UiState.BBListState(
-                    listBBCharacterResponse = characterList,
+                    listCharacterResponse = characterList,
                     loadingState = LoadingState.READY
                 )
             )
@@ -78,7 +81,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             characterList = List(charList.size) { i -> charList[i].parseToCharacterItem() }
             _state.postValue(
                 UiState.BBListState(
-                    listBBCharacterResponse = characterList,
+                    listCharacterResponse = characterList,
                     loadingState = LoadingState.READY
                 )
             )
@@ -102,7 +105,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             val character = bbApp.bbApi.getBBCharacter(charId)
             _state.postValue(
                 UiState.BBCharacterState(
-                    bbCharacter = character.first().parseToCharacter(bbApp)
+                    character = character.first().parseToCharacter(bbApp)
                 )
             )
         }.onFailure {

@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.ui
+package com.rankor.breakingbadapp.ui.common.character
 
 import android.os.Bundle
 import android.view.View
@@ -11,6 +11,7 @@ import com.rankor.breakingbadapp.databinding.FragmentCharacterBinding
 import com.rankor.breakingbadapp.domain.Category.BB
 import com.rankor.breakingbadapp.domain.Category.BB_AND_BCS
 import com.rankor.breakingbadapp.domain.Category.BCS
+import com.rankor.breakingbadapp.ui.common.BaseFragment
 import com.rankor.breakingbadapp.ui.entities.UiIntent
 import com.rankor.breakingbadapp.ui.entities.UiState
 import jp.wasabeef.glide.transformations.CropTransformation
@@ -50,7 +51,7 @@ class CharacterFragment : BaseFragment(R.layout.fragment_character) {
 
     private fun renderThisState(state: UiState.BBCharacterState) {
         with(binding) {
-            with(state.bbCharacter) {
+            with(state.character) {
                 ctlCharacter.title = name
                 tbName.title = name
                 Glide.with(requireContext())

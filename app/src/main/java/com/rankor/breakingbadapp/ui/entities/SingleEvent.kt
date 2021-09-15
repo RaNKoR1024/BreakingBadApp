@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.domain
+package com.rankor.breakingbadapp.ui.entities
 
 open class SingleEvent<out T>(private val content: T) {
 

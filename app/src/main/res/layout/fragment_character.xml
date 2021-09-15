@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:fitsSystemWindows="true"
-    tools:context=".ui.CharacterFragment">
+    tools:context=".ui.common.character.CharacterFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/main.appbar"

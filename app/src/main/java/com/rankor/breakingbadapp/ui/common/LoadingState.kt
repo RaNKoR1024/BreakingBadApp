@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.ui.entities
+package com.rankor.breakingbadapp.ui.common
 
 import android.view.View
 import com.rankor.breakingbadapp.databinding.ViewLoadingBinding

@@ -3,10 +3,10 @@ package com.rankor.breakingbadapp.data
 import android.content.Context
 import com.rankor.breakingbadapp.R
 import com.rankor.breakingbadapp.domain.Constants
-import com.rankor.breakingbadapp.ui.entities.BBCharacter
-import com.rankor.breakingbadapp.ui.entities.BBCharacterItem
+import com.rankor.breakingbadapp.ui.common.character.Character
+import com.rankor.breakingbadapp.ui.common.listcharacters.CharacterItem
 
-data class BBCharacterResponse(
+data class CharacterResponse(
     val char_id: Int,
     val name: String,
     val birthday: String,
@@ -22,19 +22,19 @@ data class BBCharacterResponse(
 
     // parsing response to simplified character class
     // for setting information in recycle view items
-    fun parseToCharacterItem(): BBCharacterItem =
-        BBCharacterItem(
+    fun parseToCharacterItem(): CharacterItem =
+        CharacterItem(
             charId = char_id,
             name = name,
             img = img
         )
 
     // parsing response to special character class for setting string values on view
-    fun parseToCharacter(context: Context): BBCharacter {
-        with(this@BBCharacterResponse) {
-            return BBCharacter(
+    fun parseToCharacter(context: Context): Character {
+        with(this@CharacterResponse) {
+            return Character(
                 name = name,
-                birthday = parseBornDate(context ,birthday),
+                birthday = parseBornDate(context, birthday),
                 occupation = parseOccupation(occupation),
                 img = img,
                 status = status,

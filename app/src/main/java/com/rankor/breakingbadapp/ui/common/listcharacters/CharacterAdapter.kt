@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.ui
+package com.rankor.breakingbadapp.ui.common.listcharacters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,15 +8,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.rankor.breakingbadapp.R
 import com.rankor.breakingbadapp.databinding.ItemCharacterBinding
-import com.rankor.breakingbadapp.ui.entities.BBCharacterItem
 import jp.wasabeef.glide.transformations.CropTransformation
 
 class CharacterAdapter(
     private val context: Context,
-    private val onClick: (BBCharacterItem) -> Unit
+    private val onClick: (CharacterItem) -> Unit
 ) : RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
-    private var dataSet = emptyList<BBCharacterItem>()
+    private var dataSet = emptyList<CharacterItem>()
     var isClickAllowed = true
 
     class ViewHolder(val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root)
@@ -56,7 +55,7 @@ class CharacterAdapter(
 
     override fun getItemCount() = dataSet.size
 
-    fun setData(newDataSet: List<BBCharacterItem>) {
+    fun setData(newDataSet: List<CharacterItem>) {
         dataSet = newDataSet
         notifyItemRangeChanged(0, dataSet.size - 1)
     }

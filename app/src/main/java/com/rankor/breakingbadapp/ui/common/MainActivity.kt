@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.ui
+package com.rankor.breakingbadapp.ui.common
 
 import android.os.Bundle
 import android.widget.Toast

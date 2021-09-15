@@ -1,4 +1,4 @@
-package com.rankor.breakingbadapp.ui
+package com.rankor.breakingbadapp.ui.common.listcharacters
 
 import android.os.Bundle
 import android.view.View
@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.rankor.breakingbadapp.R
 import com.rankor.breakingbadapp.databinding.FragmentListBinding
-import com.rankor.breakingbadapp.ui.entities.LoadingState
+import com.rankor.breakingbadapp.ui.common.BaseFragment
+import com.rankor.breakingbadapp.ui.common.LoadingState
+import com.rankor.breakingbadapp.ui.common.setLoadingState
 import com.rankor.breakingbadapp.ui.entities.UiIntent
 import com.rankor.breakingbadapp.ui.entities.UiState
-import com.rankor.breakingbadapp.ui.entities.setLoadingState
 
 class ListFragment : BaseFragment(R.layout.fragment_list) {
 
@@ -46,8 +47,8 @@ class ListFragment : BaseFragment(R.layout.fragment_list) {
         with(state) {
             binding.loadingScreen.setLoadingState(loadingState)
             adapter.isClickAllowed = loadingState == LoadingState.READY
-            if (listBBCharacterResponse.isNotEmpty()) {
-                adapter.setData(listBBCharacterResponse)
+            if (listCharacterResponse.isNotEmpty()) {
+                adapter.setData(listCharacterResponse)
             }
         }
     }

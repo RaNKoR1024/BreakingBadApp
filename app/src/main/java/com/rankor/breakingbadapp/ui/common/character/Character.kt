@@ -1,6 +1,6 @@
-package com.rankor.breakingbadapp.ui.entities
+package com.rankor.breakingbadapp.ui.common.character
 
-data class BBCharacter(
+data class Character(
     val name: String,
     val birthday: String,
     val occupation: String,
